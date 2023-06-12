@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 
 namespace Api.DataBase
 {
-
+     
     /// <summary>
     /// Clase encargada de conectar con la base de datos
     /// </summary>
@@ -19,9 +19,9 @@ namespace Api.DataBase
         /// <param name="modelo">Modelo del usuario para crear</param>
         public static async Task<dynamic> Create(Models.Usuario modelo)
         {
-
-            // Consulta
-            string query = $""" INSERT INTO `usuarios`(`NOMBRE`, `EMAIL`, `CONTRASENA`)  VALUES ('{modelo.NombreUsuario}','{modelo.Email}','{modelo.Contraseña}')""";
+            
+            // Consulta para crear user
+            string query = $""" INSERT INTO `USUARIO` (`NOMBRE`, `APELLIDO` ,`CORREO`, `CONTRASEÑA`, `F_NACIMIENTO`)  VALUES ('{modelo.NombreUsuario}','{modelo.Apellido}','{modelo.Email}','{modelo.Contraseña}', '{modelo.Fnacimiento:yyyy-MM-dd}')""";
 
             // Ejecucion
             try
@@ -51,8 +51,8 @@ namespace Api.DataBase
         public static async Task<dynamic> Update(Models.Usuario modelo, int id)
         {
 
-            // Consulta
-            string query = $""" UPDATE `usuarios` SET NOMBRE = '{modelo.NombreUsuario}', EMAIL = '{modelo.Email}', CONTRASENA = '{modelo.Contraseña}' WHERE ID = {id}  """;
+            // Consulta para actualizar la info del user
+            string query = $""" UPDATE `USUARIO` SET NOMBRE = '{modelo.NombreUsuario}', APELLIDO = '{modelo.Apellido}', CORREO = '{modelo.Email}', CONTRASEÑA = '{modelo.Contraseña}', F_NACIMIENTO = '{modelo.Fnacimiento:yyyy-MM-dd}' WHERE ID = {id}  """;
 
             // Ejecucion
             try
@@ -79,8 +79,8 @@ namespace Api.DataBase
         public static async Task<List<Models.Usuario>> Listar(int id)
         {
 
-            // Consulta
-            string query = $"""SELECT * FROM usuarios WHERE id = '{id}';""";
+            // Consulta para traer y listar la info del user
+            string query = $"""SELECT * FROM USUARIO WHERE ID = '{id}';""";
 
             // Ejecucion
             try
@@ -141,8 +141,8 @@ namespace Api.DataBase
         public static async Task<dynamic> Delete(int id)
         {
 
-            // Consulta
-            string query = $""" DELETE FROM `USUARIOS` WHERE ID = {id}""";
+            // Consulta para eliminar la info del user
+            string query = $""" DELETE FROM `USUARIO` WHERE ID = {id}""";
 
             // Ejecucion
             try
