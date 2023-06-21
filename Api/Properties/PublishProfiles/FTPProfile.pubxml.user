@@ -7,24 +7,24 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYF1G+gO4AU23uMBryq1GDQAAAAACAAAAAAAQZgAAAAEAACAAAAA/4bEmfQBQDCpjG/426nPyY+lz6AsO+ZrM3OWDmIh9QAAAAAAOgAAAAAIAACAAAADmGP5+CKGMWm4FmynGAteUe5h9nhT6XW+1cd3MzeM5KSAAAADd2WIFbfV+ZtEshtT+2c04W6nqJ+DBUckyH/uRRT0AdkAAAAC4z3Iunv3F978lGY9aX4xc+9RtX4M9Q//Dl/60/f5GnwKe75+2Q8tdRxzRbWWKZIKj7dV2WR1bgbiTsjOkhrYQ</EncryptedPassword>
     <_PublishTargetUrl>ftp://192.52.242.121/www.Ugroup.somee.com</_PublishTargetUrl>
-    <History>True|2023-06-10T22:54:38.8424088Z;True|2023-06-10T15:30:19.4503446-05:00;True|2023-06-10T14:23:43.8387762-05:00;False|2023-06-08T21:55:38.0356608-05:00;False|2023-06-08T21:55:07.4325042-05:00;True|2023-06-08T21:42:51.3863977-05:00;False|2023-06-08T21:41:33.2337829-05:00;True|2023-06-07T22:11:24.1674433-05:00;False|2023-06-07T22:10:32.0473785-05:00;True|2023-06-07T22:01:24.7000394-05:00;False|2023-06-07T21:59:45.0643670-05:00;True|2023-06-05T15:08:30.7136217-05:00;False|2023-06-05T15:06:33.4711302-05:00;False|2023-06-05T15:05:51.7732627-05:00;</History>
+    <History>True|2023-06-21T02:43:40.8380433Z;True|2023-06-19T17:31:17.2369079-05:00;True|2023-06-16T23:06:59.0892242-05:00;True|2023-06-15T21:27:08.2919315-05:00;True|2023-06-13T23:36:18.7914944-05:00;False|2023-06-13T23:34:59.3339029-05:00;True|2023-06-10T17:54:38.8424088-05:00;True|2023-06-10T15:30:19.4503446-05:00;True|2023-06-10T14:23:43.8387762-05:00;False|2023-06-08T21:55:38.0356608-05:00;False|2023-06-08T21:55:07.4325042-05:00;True|2023-06-08T21:42:51.3863977-05:00;False|2023-06-08T21:41:33.2337829-05:00;True|2023-06-07T22:11:24.1674433-05:00;False|2023-06-07T22:10:32.0473785-05:00;True|2023-06-07T22:01:24.7000394-05:00;False|2023-06-07T21:59:45.0643670-05:00;True|2023-06-05T15:08:30.7136217-05:00;False|2023-06-05T15:06:33.4711302-05:00;False|2023-06-05T15:05:51.7732627-05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="Api.deps.json">
-      <publishTime>06/10/2023 17:54:06</publishTime>
+      <publishTime>06/20/2023 21:43:06</publishTime>
     </File>
     <File Include="Api.dll">
-      <publishTime>06/10/2023 17:54:05</publishTime>
+      <publishTime>06/20/2023 21:43:06</publishTime>
     </File>
     <File Include="Api.exe">
-      <publishTime>06/10/2023 17:54:05</publishTime>
+      <publishTime>06/20/2023 21:43:06</publishTime>
     </File>
     <File Include="Api.pdb">
-      <publishTime>06/10/2023 17:54:05</publishTime>
+      <publishTime>06/20/2023 21:43:06</publishTime>
     </File>
     <File Include="Api.runtimeconfig.json">
-      <publishTime>06/07/2023 22:00:41</publishTime>
+      <publishTime>06/16/2023 23:06:26</publishTime>
     </File>
     <File Include="appsettings.Development.json">
       <publishTime>05/02/2023 22:08:11</publishTime>
@@ -111,7 +111,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/15/2019 03:54:30</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>06/10/2023 17:54:06</publishTime>
+      <publishTime>06/20/2023 21:43:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

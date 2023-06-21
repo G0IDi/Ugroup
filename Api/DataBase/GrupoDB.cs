@@ -1,23 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
+
 namespace Api.DataBase
 {
-     
-    /// <summary>
-    /// Clase encargada de conectar con la base de datos
-    /// </summary>
-    public class UserDB
+    public class GrupoDB
     {
+
         /// <summary>
         /// Crea un usuario en la base de datos
         /// </summary>
         /// <param name="modelo">Modelo del usuario para crear</param>
-        public static async Task<dynamic> Create(Models.Usuario modelo)
+        public static async Task<dynamic> Create(Models.Grupo modelo)
         {
-            
+
             // Consulta para crear user
-            string query = $""" INSERT INTO `USUARIO` (`NOMBRE`, `APELLIDO` ,`CORREO`, `CONTRASEÑA`, `F_NACIMIENTO`)  VALUES ('{modelo.NombreUsuario}','{modelo.Apellido}','{modelo.Email}','{modelo.Contrasena}', '{modelo.Fnacimiento:yyyy-MM-dd}')""";
+            string query = $""" INSERT INTO `GRUPOS` (`NOMBRE_GRUPO`, `DESCRIPCION`, `ID_TEMAS`  )  VALUES ('{modelo.Name}','{modelo.Description}', '{modelo.IdTemas}')""";
 
             // Ejecucion
             try
@@ -44,11 +42,11 @@ namespace Api.DataBase
         /// </summary>
         /// <param name="id">ID del usuario</param>
         /// <returns></returns>
-        public static async Task<dynamic> Update(Models.Usuario modelo, int id)
+        public static async Task<dynamic> Update(Models.Grupo modelo, int id)
         {
 
             // Consulta para actualizar la info del user
-            string query = $""" UPDATE `USUARIO` SET NOMBRE = '{modelo.NombreUsuario}', APELLIDO = '{modelo.Apellido}', CORREO = '{modelo.Email}', CONTRASEÑA = '{modelo.Contrasena}', F_NACIMIENTO = '{modelo.Fnacimiento:yyyy-MM-dd}' WHERE ID = {id}  """;
+            string query = $""" UPDATE `GRUPOS` SET NOMBRE_GRUPO = '{modelo.Name}', DESCRIPCION = '{modelo.Description}' WHERE ID = {id}  """;
 
             // Ejecucion
             try
@@ -72,11 +70,11 @@ namespace Api.DataBase
 
 
 
-        public static async Task<List<Models.Usuario>> Listar(int id)
+        public static async Task<List<Models.Grupo>> Listar(int id)
         {
 
             // Consulta para traer y listar la info del user
-            string query = $"""SELECT * FROM USUARIO WHERE ID = '{id}';""";
+            string query = $"""SELECT * FROM GRUPOS WHERE ID = '{id}';""";
 
             // Ejecucion
             try
@@ -95,26 +93,25 @@ namespace Api.DataBase
                 }
 
                 // Lista de usuarios
-                List<Models.Usuario> usuarios = new();
+                List<Models.Grupo> grupos = new();
 
                 // Mapeo
                 while (reader.Read())
                 {
                     // Mapeo de los modelos mediante su ubicacion en la fila
-                    var modelo = new Models.Usuario
+                    var modelo = new Models.Grupo
                     {
-                        ID = reader.GetInt32(0),
-                        NombreUsuario = reader.GetString(1),
-                        Contrasena = reader.GetString(2),
-                        Email = reader.GetString(3)
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Description = reader.GetString(2),  
                     };
 
                     // Agrega el modelo a la lista
-                    usuarios.Add(modelo);
+                    grupos.Add(modelo);
                 }
 
                 // Retorna la lista
-                return usuarios;
+                return grupos;
 
             }
             catch
@@ -138,7 +135,7 @@ namespace Api.DataBase
         {
 
             // Consulta para eliminar la info del user
-            string query = $""" DELETE FROM `USUARIO` WHERE ID = {id}""";
+            string query = $""" DELETE FROM `GRUPOS` WHERE ID = {id}""";
 
             // Ejecucion
             try
@@ -158,6 +155,7 @@ namespace Api.DataBase
             return "OK";
 
         }
+
 
 
     }

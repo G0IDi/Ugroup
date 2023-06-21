@@ -13,7 +13,7 @@ namespace Api.Models
         
         public string Apellido { get; set; } = string.Empty;
 
-        public string Contraseña { get; set; } = string.Empty;
+        public string Contrasena { get; set; } = string.Empty;
 
         public string Email { get; set; } = string.Empty;
 
