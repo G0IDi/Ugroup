@@ -1,13 +1,15 @@
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.SignalR;
+using Api.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Org.BouncyCastle.Bcpg;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-
+builder.Services.AddSignalR();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -23,7 +25,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
-
+app.MapHub<Chat> ("/Chat");
 
 app.UseSwagger();
 app.UseSwaggerUI();

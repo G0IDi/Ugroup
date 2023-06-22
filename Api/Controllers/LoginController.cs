@@ -1,26 +1,28 @@
 ﻿using Api.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
 
 namespace Api.Controllers
 {
     [Route("LogIn")]
     public class LoginController : Controller
     {
-        [HttpPost("Login")]
-        public async Task<dynamic> Post([FromBody] Models.LogIn modeloLogin)
+        [HttpPost("Confirmacion")]
+        public async Task<IActionResult> Post([FromBody] LogIn modeloLogin)
         {
             try
             {
                 bool resultado = await DataBase.LoginDB.Registro(modeloLogin);
-                return resultado;
+                if (resultado)
+
+                    return Ok();
+
+
+                return StatusCode(401);
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return StatusCode(500, ex.Message);
             }
-
         }
-
     }
 }

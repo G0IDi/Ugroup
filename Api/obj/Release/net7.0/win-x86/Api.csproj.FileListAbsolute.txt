@@ -42,3 +42,7 @@ C:\Users\godoy\OneDrive\Escritorio\Api\Api\obj\Release\net7.0\win-x86\refint\Api
 C:\Users\godoy\OneDrive\Escritorio\Api\Api\obj\Release\net7.0\win-x86\Api.pdb
 C:\Users\godoy\OneDrive\Escritorio\Api\Api\obj\Release\net7.0\win-x86\Api.genruntimeconfig.cache
 C:\Users\godoy\OneDrive\Escritorio\Api\Api\obj\Release\net7.0\win-x86\ref\Api.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\Microsoft.Extensions.Features.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\Microsoft.Extensions.Options.dll

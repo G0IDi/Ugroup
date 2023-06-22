@@ -9,6 +9,10 @@ C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out
 C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\K4os.Compression.LZ4.dll
 C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\K4os.Compression.LZ4.Streams.dll
 C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\K4os.Hash.xxHash.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\Microsoft.Extensions.Features.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\Microsoft.Extensions.Options.dll
 C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 C:\Users\godoy\OneDrive\Escritorio\api\Api\obj\Release\net7.0\win-x86\PubTmp\Out\MySql.Data.dll

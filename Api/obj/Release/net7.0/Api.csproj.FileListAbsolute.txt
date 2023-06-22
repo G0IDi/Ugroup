@@ -52,3 +52,8 @@ C:\Users\godoy\OneDrive\Escritorio\Api\Api\obj\Release\net7.0\refint\Api.dll
 C:\Users\godoy\OneDrive\Escritorio\Api\Api\obj\Release\net7.0\Api.pdb
 C:\Users\godoy\OneDrive\Escritorio\Api\Api\obj\Release\net7.0\Api.genruntimeconfig.cache
 C:\Users\godoy\OneDrive\Escritorio\Api\Api\obj\Release\net7.0\ref\Api.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\Microsoft.Extensions.Features.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\libman.json
