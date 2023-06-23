@@ -6,9 +6,9 @@ namespace Api.DataBase
 {
     public class LoginDB
     {
-        public static async Task<bool> Registro(Models.LogIn modelo)
+        public static async Task<int> Registro(Models.LogIn modelo)
         {
-            string query = "SELECT COUNT(*) FROM USUARIO WHERE CORREO = @Email AND CONTRASEÑA = @Contrasena";
+            string query = "SELECT ID FROM USUARIO WHERE CORREO = @Email AND CONTRASEÑA = @Contrasena";
 
             try
             {
@@ -19,15 +19,15 @@ namespace Api.DataBase
                         comando.Parameters.AddWithValue("@Email", modelo.Email);
                         comando.Parameters.AddWithValue("@Contrasena", modelo.Contrasena);
 
-                        int rowCount = Convert.ToInt32(await comando.ExecuteScalarAsync());
-                        return rowCount > 0;
+                        int id = Convert.ToInt32(await comando.ExecuteScalarAsync());
+                        return id;
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return false;
+                return 0;
             }
 
 

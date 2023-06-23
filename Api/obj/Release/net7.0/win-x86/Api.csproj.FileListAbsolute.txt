@@ -46,3 +46,4 @@ C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\Microsoft.
 C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\Microsoft.AspNetCore.SignalR.Common.dll
 C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\Microsoft.Extensions.Features.dll
 C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\Microsoft.Extensions.Options.dll
+C:\Users\godoy\OneDrive\Escritorio\api\Api\bin\Release\net7.0\win-x86\libman.json

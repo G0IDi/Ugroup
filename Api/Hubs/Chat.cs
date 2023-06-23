@@ -1,6 +1,5 @@
 ﻿namespace Api.Hubs;
 
-
 public class Chat : Microsoft.AspNetCore.SignalR.Hub
 {
 
@@ -17,12 +16,18 @@ public class Chat : Microsoft.AspNetCore.SignalR.Hub
         
     }
 
-
     public async Task SendMessage(string message, string groupName)
     {
-        await Clients.Group(groupName).SendAsync("canalMensajes", message);
+        var id = Context.ConnectionId;
+        string[] except = { id };
+        await Clients.GroupExcept(groupName, except).SendAsync("canalMensajes", message);
     }
 
-
+    public async Task SendLocation(string location, string groupName)
+    {
+        var id = Context.ConnectionId;
+        string[] except = { id };
+        await Clients.GroupExcept(groupName, except).SendAsync("canalLocation", location);
+    }
 
 }

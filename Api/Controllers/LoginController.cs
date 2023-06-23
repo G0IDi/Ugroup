@@ -11,10 +11,10 @@ namespace Api.Controllers
         {
             try
             {
-                bool resultado = await DataBase.LoginDB.Registro(modeloLogin);
-                if (resultado)
+                int resultado = await DataBase.LoginDB.Registro(modeloLogin);
+                if (resultado > 0)
 
-                    return Ok();
+                    return Ok(resultado);
 
 
                 return StatusCode(401);
