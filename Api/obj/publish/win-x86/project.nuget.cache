@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ia1gEgYHJhZoD0qfcPxD3GSUPx1YjOH+ytmKv4VaPHbdkGPRvifgv3L6LRAdbURzKOzN4PQjFCM31StkALckkA==",
+  "dgSpecHash": "Z1FUmoFrw2qoeJazEUo4KDV2tj/GeHAoiz5eDTp050oSoFn3P4gZOBXpF92CSjRCp10fFiY9muDEG3h9tsK2YA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\godoy\\OneDrive\\Escritorio\\api\\Api\\Api.csproj",
+  "projectFilePath": "C:\\Users\\godoy\\OneDrive\\Escritorio\\Ugroup\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\godoy\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\godoy\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",

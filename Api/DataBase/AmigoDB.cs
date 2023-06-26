@@ -89,6 +89,31 @@ namespace Api.DataBase
 
         }
 
+        public static async Task<dynamic> Update(Models.Amigos modelo, int id)
+        {
+
+            // Consulta para actualizar la info del user
+            string query = $""" UPDATE `AMIGOS` SET M_AMIGO = '{(modelo.MejorAmigo ? 1 : 0)}' WHERE ID = '{id}'""";
+
+            // Ejecucion
+            try
+            {
+                // Comando
+                MySqlCommand comando = new(query, Conexion.GetOneConnection().DataBase);
+
+                // ID del insertado
+                await comando.ExecuteNonQueryAsync();
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
+
+            return "OK";
+
+        }
+
         public static async Task<dynamic> Delete(int id)
         {
 

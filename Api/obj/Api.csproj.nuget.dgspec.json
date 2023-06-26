@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\godoy\\OneDrive\\Escritorio\\api\\Api\\Api.csproj": {}
+    "C:\\Users\\godoy\\OneDrive\\Escritorio\\Ugroup\\Api\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\godoy\\OneDrive\\Escritorio\\api\\Api\\Api.csproj": {
+    "C:\\Users\\godoy\\OneDrive\\Escritorio\\Ugroup\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\godoy\\OneDrive\\Escritorio\\api\\Api\\Api.csproj",
+        "projectUniqueName": "C:\\Users\\godoy\\OneDrive\\Escritorio\\Ugroup\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\godoy\\OneDrive\\Escritorio\\api\\Api\\Api.csproj",
+        "projectPath": "C:\\Users\\godoy\\OneDrive\\Escritorio\\Ugroup\\Api\\Api.csproj",
         "packagesPath": "C:\\Users\\godoy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\godoy\\OneDrive\\Escritorio\\api\\Api\\obj\\",
+        "outputPath": "C:\\Users\\godoy\\OneDrive\\Escritorio\\Ugroup\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -15,7 +15,7 @@ namespace Api.DataBase
         {
 
             // Consulta para crear user
-            string query = $""" INSERT INTO `GRUPOS` (`NOMBRE_GRUPO`, `DESCRIPCION`, `ID_TEMAS`, `ID_USUARIO` )  VALUES ('{modelo.Name}','{modelo.Description}', '{modelo.IdTemas}', '{modelo.IdUsuario}')""";
+            string query = $""" INSERT INTO `GRUPOS` (`NOMBRE_GRUPO`, `DESCRIPCION`, `ID_TEMAS`, `ID_USUARIO` )  VALUES ('{modelo.NOMBRE_GRUPO}','{modelo.DESCRIPCION}', '{modelo.ID_TEMAS}', '{modelo.ID_USUARIO}')""";
 
             // Ejecucion
             try
@@ -35,7 +35,6 @@ namespace Api.DataBase
             return "OK";
 
         }
-
 
         /// <summary>
         /// Actualiza undato de la base de datos
@@ -46,7 +45,7 @@ namespace Api.DataBase
         {
 
             // Consulta para actualizar la info del user
-            string query = $""" UPDATE `GRUPOS` SET NOMBRE_GRUPO = '{modelo.Name}', DESCRIPCION = '{modelo.Description}' WHERE ID = {id}  """;
+            string query = $""" UPDATE `GRUPOS` SET NOMBRE_GRUPO = '{modelo.NOMBRE_GRUPO}', DESCRIPCION = '{modelo.DESCRIPCION}' WHERE ID = {id}  """;
 
             // Ejecucion
             try
@@ -67,14 +66,16 @@ namespace Api.DataBase
 
         }
 
-
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"> ID_USUARIO </param>
+        /// <returns></returns>
         public static async Task<List<Models.Grupo>> Listar(int id)
         {
 
             // Consulta para traer y listar la info del user
-            string query = $"""SELECT * FROM GRUPOS WHERE ID = '{id}';""";
+            string query = $"""SELECT * FROM GRUPOS WHERE ID_USUARIO = '{id}';""";
 
             // Ejecucion
             try
@@ -101,11 +102,11 @@ namespace Api.DataBase
                     // Mapeo de los modelos mediante su ubicacion en la fila
                     var modelo = new Models.Grupo
                     {
-                        Id = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        Description = reader.GetString(2),  
-                        IdUsuario = reader.GetInt32(3),
-                        IdTemas = reader.GetInt32(4)
+                        ID = reader.GetInt32(0),
+                        NOMBRE_GRUPO = reader.GetString(1),
+                        DESCRIPCION = reader.GetString(2),  
+                        ID_USUARIO = reader.GetInt32(3),
+                        ID_TEMAS = reader.GetInt32(4)
                     };
 
                     // Agrega el modelo a la lista
@@ -126,6 +127,61 @@ namespace Api.DataBase
 
         }
 
+        public static async Task<List<Models.Grupo>> ListarTodo(int id)
+        {
+
+            // Consulta para traer y listar la info del user
+            string query = $"""SELECT * FROM GRUPOS WHERE ID_USUARIO != '{id}';""";
+
+            // Ejecucion
+            try
+            {
+                // Comando
+                MySqlCommand comando = new(query, Conexion.GetOneConnection().DataBase);
+
+                // Ejecuta un reader sobre la consulta
+                var reader = comando.ExecuteReader();
+
+                // Pregunta si no hay registros
+                if (!reader.HasRows)
+                {
+                    reader.Close();
+                    return new();
+                }
+
+                // Lista de usuarios
+                List<Models.Grupo> grupos = new();
+
+                // Mapeo
+                while (reader.Read())
+                {
+                    // Mapeo de los modelos mediante su ubicacion en la fila
+                    var modelo = new Models.Grupo
+                    {
+                        ID = reader.GetInt32(0),
+                        NOMBRE_GRUPO = reader.GetString(1),
+                        DESCRIPCION = reader.GetString(2),
+                        ID_USUARIO = reader.GetInt32(3),
+                        ID_TEMAS = reader.GetInt32(4)
+                    };
+
+                    // Agrega el modelo a la lista
+                    grupos.Add(modelo);
+                }
+
+                // Retorna la lista
+                return grupos;
+
+            }
+            catch
+            {
+                // -- Manejor de errores
+            }
+
+
+            return new();
+
+        }
 
 
         /// <summary>

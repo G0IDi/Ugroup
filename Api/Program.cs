@@ -18,6 +18,10 @@ builder.Services.AddSwaggerGen();
 Conexion.SetStringConnection("server=db4free.net;database=ugroup1;user=godooy; password=1025883244; port=3306");
 #endif
 
+#if DEBUG 
+Conexion.SetStringConnection("server=db4free.net;database=ugroup1;user=godooy; password=1025883244; port=3306");
+#endif
+
 //Conexion.SetStringConnection("workstation id = UgroupDataBase.mssql.somee.com; packet size = 4096; user id = godoy_SQLLogin_2; pwd = 9n4ufxwre5; data source = UgroupDataBase.mssql.somee.com; persist security info=False; initial catalog = UgroupDataBase");
 
 var app = builder.Build();

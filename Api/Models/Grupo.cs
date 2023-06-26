@@ -3,15 +3,11 @@
     public class Grupo
     {
 
-        public int Id { get; set; }
-
-        public int IdTemas { get; set; }
-
-        public int IdUsuario { get; set; }
-
-        public string Name { get; set; } = string.Empty;
-
-        public string Description { get; set; } = string.Empty;
+        public int ID { get; set; }
+        public string NOMBRE_GRUPO { get; set; } = string.Empty;
+        public string DESCRIPCION { get; set; } = string.Empty;
+        public int ID_TEMAS { get; set; }
+        public int ID_USUARIO { get; set; }
 
     }
 }

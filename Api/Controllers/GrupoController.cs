@@ -16,6 +16,16 @@ namespace Api.Controllers
             return res;
 
         }
+
+        //metodo para listar la info 
+        [HttpGet("ListTodo")]
+        public async Task<dynamic> GetTodo([FromQuery] int id)
+        {
+
+            var res = await DataBase.GrupoDB.ListarTodo(id);
+            return res;
+
+        }
         //metodo para crear la info 
         [HttpPost("Create")]
         public async Task<dynamic> Post([FromBody] Models.Grupo modelo)
