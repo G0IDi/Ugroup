@@ -15,11 +15,20 @@ namespace Api.Controllers
 
         }
 
-        [HttpGet("List")]
-        public async Task<dynamic> Get([FromQuery] int IdGrupos)
+        [HttpGet("ListGrupos")]
+        public async Task<dynamic> GetGrupos([FromQuery] int IdGrupos)
         {
 
-            var res = await DataBase.UsurioGrupoDB.Listar(IdGrupos);
+            var res = await DataBase.UsurioGrupoDB.ListarGrupos(IdGrupos);
+            return res;
+
+        }
+
+        [HttpGet("ListUsuario")]
+        public async Task<dynamic> GetUsuario([FromQuery] int IdGrupos)
+        {
+
+            var res = await DataBase.UsurioGrupoDB.ListarUsuario(IdGrupos);
             return res;
 
         }

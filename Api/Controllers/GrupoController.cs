@@ -26,6 +26,7 @@ namespace Api.Controllers
             return res;
 
         }
+
         //metodo para crear la info 
         [HttpPost("Create")]
         public async Task<dynamic> Post([FromBody] Models.Grupo modelo)

@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Api.Models;
+using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 
 
 namespace Api.DataBase
@@ -75,7 +77,7 @@ namespace Api.DataBase
         {
 
             // Consulta para traer y listar la info del user
-            string query = $"""SELECT * FROM GRUPOS WHERE ID_USUARIO = '{id}';""";
+            string query = $" SELECT g.ID, g.NOMBRE_GRUPO, g.DESCRIPCION, g.ID_USUARIO, g.ID_TEMAS FROM GRUPOS g WHERE g.ID_USUARIO = {id} UNION SELECT g.ID, g.NOMBRE_GRUPO, g.DESCRIPCION, g.ID_USUARIO, g.ID_TEMAS FROM GRUPOS g INNER JOIN USUARIOS_GRUPO ug ON g.ID = ug.ID_GRUPOS WHERE ug.ID_USUARIO = {id};";
 
             // Ejecucion
             try
@@ -127,11 +129,13 @@ namespace Api.DataBase
 
         }
 
+
         public static async Task<List<Models.Grupo>> ListarTodo(int id)
         {
 
             // Consulta para traer y listar la info del user
-            string query = $"""SELECT * FROM GRUPOS WHERE ID_USUARIO != '{id}';""";
+            string query = $"SELECT g.ID, g.NOMBRE_GRUPO, g.DESCRIPCION, g.ID_USUARIO, g.ID_TEMAS FROM GRUPOS g WHERE NOT EXISTS( SELECT 1 FROM USUARIOS_GRUPO ug WHERE g.ID = ug.ID_GRUPOS AND ug.ID_USUARIO = 77) AND g.ID_USUARIO <> 77 ORDER BY g.ID ASC;";
+               
 
             // Ejecucion
             try

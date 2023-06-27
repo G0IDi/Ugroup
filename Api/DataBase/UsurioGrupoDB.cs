@@ -30,7 +30,7 @@ namespace Api.DataBase
 
         }
 
-        public static async Task<List<Models.UsuarioGrupo>> Listar(int IdGrupos)
+        public static async Task<List<Models.UsuarioGrupo>> ListarGrupos(int IdGrupos)
         {
 
             // Consulta para traer y listar la info del user
@@ -86,6 +86,62 @@ namespace Api.DataBase
 
         }
 
+        public static async Task<List<Models.UsuarioGrupo>> ListarUsuario(int IdUsuario)
+        {
+
+            // Consulta para traer y listar la info del user
+            string query = $"SELECT * FROM `USUARIOS_GRUPO` WHERE ID_USUARIO = '{IdUsuario}';";
+
+
+
+            // Ejecucion
+            try
+            {
+                // Comando
+                MySqlCommand comando = new(query, Conexion.GetOneConnection().DataBase);
+
+                // Ejecuta un reader sobre la consulta
+                var reader = comando.ExecuteReader();
+
+                // Pregunta si no hay registros
+                if (!reader.HasRows)
+                {
+                    reader.Close();
+                    return new();
+                }
+
+                // Lista de usuarios
+                List<Models.UsuarioGrupo> Grupos = new();
+
+                // Mapeo
+                while (reader.Read())
+                {
+                    // Mapeo de los modelos mediante su ubicacion en la fila
+                    var modelo = new Models.UsuarioGrupo
+                    {
+                        Id = reader.GetInt32(0),
+                        IdGrupos = reader.GetInt32(1),
+                        IdUsuario = reader.GetInt32(2),
+                    };
+
+                    // Agrega el modelo a la lista
+                    Grupos.Add(modelo);
+                }
+
+                // Retorna la lista
+                return Grupos;
+
+            }
+            catch
+            {
+                // -- Manejor de errores
+            }
+
+
+            return new();
+
+        }
+        
         public static async Task<dynamic> Delete(int id)
         {
 
