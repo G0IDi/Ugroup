@@ -4,65 +4,56 @@ namespace Api.DataBase
 {
     public class AmigoDB
     {
-
         /// <summary>
-        /// Crea un usuario en la base de datos
+        /// Crea una relación de amistad en la base de datos.
         /// </summary>
-        /// <param name="modelo">Modelo del usuario para crear</param>
+        /// <param name="modelo">Modelo de la relación de amistad para crear</param>
         public static async Task<dynamic> CreateAmistad(Models.Amigos modelo)
         {
+            // Consulta para crear la relación de amistad
+            string query = $"INSERT INTO `AMIGOS` (`M_AMIGO`, `ID_USUARIO`, `ID_AMIGO`) VALUES ('{Convert.ToInt32(modelo.MejorAmigo)}', '{modelo.IdUsuario}', '{modelo.IdAmigo}')";
 
-            // Consulta para crear user
-            string query = $""" INSERT INTO `AMIGOS` (`M_AMIGO`, `ID_USUARIO` ,`ID_AMIGO`)  VALUES ('{Convert.ToInt32(modelo.MejorAmigo)}','{modelo.IdUsuario}','{modelo.IdAmigo}')""";
-
-            // Ejecucion
             try
             {
-                // Comando
-                MySqlCommand comando = new(query, Conexion.GetOneConnection().DataBase);
-
-                // ID del insertado
+                // Ejecuta la consulta en la base de datos
+                MySqlCommand comando = new MySqlCommand(query, Conexion.GetOneConnection().DataBase);
                 await comando.ExecuteNonQueryAsync();
             }
             catch (Exception ex)
             {
+                // Captura cualquier excepción y la devuelve como resultado
                 return ex.Message;
             }
 
-
             return "OK";
-
         }
 
+        /// <summary>
+        /// Obtiene una lista de relaciones de amistad para un usuario específico.
+        /// </summary>
+        /// <param name="id">ID del usuario</param>
         public static async Task<List<Models.Amigos>> Listar(int id)
         {
+            // Consulta para obtener las relaciones de amistad del usuario
+            string query = $"SELECT * FROM AMIGOS WHERE ID_USUARIO = '{id}'";
 
-            // Consulta para traer y listar la info del user
-            string query = $"""SELECT * FROM AMIGOS WHERE ID_USUARIO = '{id}';""";
-
-            // Ejecucion
             try
             {
-                // Comando
-                MySqlCommand comando = new(query, Conexion.GetOneConnection().DataBase);
-
-                // Ejecuta un reader sobre la consulta
+                MySqlCommand comando = new MySqlCommand(query, Conexion.GetOneConnection().DataBase);
                 var reader = comando.ExecuteReader();
 
-                // Pregunta si no hay registros
                 if (!reader.HasRows)
                 {
                     reader.Close();
-                    return new();
+                    // Si no hay registros, devuelve una lista vacía
+                    return new List<Models.Amigos>();
                 }
 
-                // Lista de usuarios
-                List<Models.Amigos> amigos = new();
+                List<Models.Amigos> amigos = new List<Models.Amigos>();
 
-                // Mapeo
+                // Mapeo de los resultados a objetos de modelo
                 while (reader.Read())
                 {
-                    // Mapeo de los modelos mediante su ubicacion en la fila
                     var modelo = new Models.Amigos
                     {
                         Id = reader.GetInt32(0),
@@ -71,37 +62,33 @@ namespace Api.DataBase
                         MejorAmigo = reader.GetBoolean(1)
                     };
 
-                    // Agrega el modelo a la lista
                     amigos.Add(modelo);
                 }
 
-                // Retorna la lista
+                // Devuelve la lista de relaciones de amistad
                 return amigos;
-
             }
             catch
             {
-                // -- Manejor de errores
+                // Manejo de errores
             }
 
-
-            return new();
-
+            return new List<Models.Amigos>();
         }
 
+        /// <summary>
+        /// Actualiza una relación de amistad existente.
+        /// </summary>
+        /// <param name="modelo">Modelo de la relación de amistad actualizada</param>
+        /// <param name="id">ID de la relación de amistad</param>
         public static async Task<dynamic> Update(Models.Amigos modelo, int id)
         {
+            // Consulta para actualizar la relación de amistad
+            string query = $"UPDATE `AMIGOS` SET M_AMIGO = '{(modelo.MejorAmigo ? 1 : 0)}' WHERE ID = '{id}'";
 
-            // Consulta para actualizar la info del user
-            string query = $""" UPDATE `AMIGOS` SET M_AMIGO = '{(modelo.MejorAmigo ? 1 : 0)}' WHERE ID = '{id}'""";
-
-            // Ejecucion
             try
             {
-                // Comando
-                MySqlCommand comando = new(query, Conexion.GetOneConnection().DataBase);
-
-                // ID del insertado
+                MySqlCommand comando = new MySqlCommand(query, Conexion.GetOneConnection().DataBase);
                 await comando.ExecuteNonQueryAsync();
             }
             catch (Exception ex)
@@ -109,24 +96,21 @@ namespace Api.DataBase
                 return ex.Message;
             }
 
-
             return "OK";
-
         }
 
+        /// <summary>
+        /// Elimina una relación de amistad.
+        /// </summary>
+        /// <param name="id">ID de la relación de amistad</param>
         public static async Task<dynamic> Delete(int id)
         {
+            // Consulta para eliminar la relación de amistad
+            string query = $"DELETE FROM `AMIGOS` WHERE ID = {id}";
 
-            // Consulta para eliminar la info del user
-            string query = $""" DELETE FROM `AMIGOS` WHERE ID = {id}""";
-
-            // Ejecucion
             try
             {
-                // Comando
-                MySqlCommand comando = new(query, Conexion.GetOneConnection().DataBase);
-
-                // ID del insertado
+                MySqlCommand comando = new MySqlCommand(query, Conexion.GetOneConnection().DataBase);
                 await comando.ExecuteNonQueryAsync();
             }
             catch (Exception ex)
@@ -134,10 +118,7 @@ namespace Api.DataBase
                 return ex.Message;
             }
 
-
             return "OK";
-
         }
-
     }
 }

@@ -4,7 +4,6 @@
 public sealed class Conexion
 {
 
-
     //======= Propiedades estaticas =======//
 
 

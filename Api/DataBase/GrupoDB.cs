@@ -1,8 +1,6 @@
 ﻿using Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.X509;
-
 
 namespace Api.DataBase
 {
@@ -134,7 +132,7 @@ namespace Api.DataBase
         {
 
             // Consulta para traer y listar la info del user
-            string query = $"SELECT g.ID, g.NOMBRE_GRUPO, g.DESCRIPCION, g.ID_USUARIO, g.ID_TEMAS FROM GRUPOS g WHERE NOT EXISTS( SELECT 1 FROM USUARIOS_GRUPO ug WHERE g.ID = ug.ID_GRUPOS AND ug.ID_USUARIO = 77) AND g.ID_USUARIO <> 77 ORDER BY g.ID ASC;";
+            string query = $"SELECT * FROM GRUPOS g WHERE NOT EXISTS( SELECT 1 FROM USUARIOS_GRUPO ug WHERE g.ID = ug.ID_GRUPOS AND ug.ID_USUARIO = {id}) AND g.ID_USUARIO <> {id} ORDER BY g.ID ASC;";
                
 
             // Ejecucion

@@ -9,8 +9,6 @@
 
         public int IdUsuario { get; set; }
 
-        public string Comentario { get; set; } = string.Empty;
-
         public string Descripcion { get; set; } = string.Empty;
 
         public string ImagenPublicacion { get; set;} = string.Empty;

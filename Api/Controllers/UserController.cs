@@ -2,49 +2,39 @@
 
 namespace Api.Controllers
 {
-    // Ruta  de lso usuarios
     [Route("User")]
     public class UserController : ControllerBase
     {
-        //metodo para listar la info 
+        // Método HTTP GET para obtener la información de un usuario
         [HttpGet("List")]
-        public async Task<dynamic> Get([FromQuery] int id )
+        public async Task<dynamic> Get([FromQuery] int id)
         {
-
-            var res = await DataBase.UserDB.Listar(id);
-            return res;
-
+            var res = await DataBase.UserDB.Listar(id); // Llama al método Listar de la clase UserDB para obtener la información de un usuario
+            return res; // Devuelve el resultado obtenido
         }
-        //metodo para crear la info 
+
+        // Método HTTP POST para crear la información de un usuario
         [HttpPost("Create")]
         public async Task<dynamic> Post([FromBody] Models.Usuario modelo)
         {
-
-            var res = await DataBase.UserDB.Create(modelo);
-            return res;
-
+            var res = await DataBase.UserDB.Create(modelo); // Llama al método Create de la clase UserDB para crear la información de un usuario
+            return res; // Devuelve el resultado obtenido
         }
 
-        // metodo para actualizar la info 
+        // Método HTTP PUT para actualizar la información de un usuario
         [HttpPut("Update")]
         public async Task<dynamic> Put([FromBody] Models.Usuario modelo, [FromQuery] int id)
         {
-
-            var res = await DataBase.UserDB.Update(modelo, id);
-            return res;
-
+            var res = await DataBase.UserDB.Update(modelo, id); // Llama al método Update de la clase UserDB para actualizar la información de un usuario
+            return res; // Devuelve el resultado obtenido
         }
-   
-        //metodo para eliminar la info 
+
+        // Método HTTP DELETE para eliminar la información de un usuario
         [HttpDelete("Delete")]
         public async Task<dynamic> Delete([FromQuery] int id)
         {
-
-            var res = await DataBase.UserDB.Delete(id);
-            return res;
-
+            var res = await DataBase.UserDB.Delete(id); // Llama al método Delete de la clase UserDB para eliminar la información de un usuario
+            return res; // Devuelve el resultado obtenido
         }
-
     }
-
 }

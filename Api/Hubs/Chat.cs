@@ -10,7 +10,6 @@ public class Chat : Microsoft.AspNetCore.SignalR.Hub
         await Groups.AddToGroupAsync(id, nombreGrupo);
     }
 
-
     public async Task LeaveGroup(string groupName)
     {
         
